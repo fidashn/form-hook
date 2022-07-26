@@ -11,8 +11,7 @@ const schema = yup.object().shape({
   password: yup.string().min(4).max(15).required() ,
   //this step compares the new password input with the exact input we used before.
   confirmPassword: yup.string().oneOf([yup.ref("password"), null])
-  
-});
+  });
 
 
 function Form() {
@@ -31,11 +30,17 @@ function Form() {
       <div className="inputs">
         <form onSubmit={handleSubmit(submitForm)}>
           <input type="text" name='firstName' placeholder='First Name...' ref={register}/>
+          <p>{errors.firstName?.message}</p>
           <input type="text" name='lastName' placeholder='Last Name...'ref={register}/>
+          <p>{errors.lastName?.message}</p>
           <input type="text" name='email' placeholder='Email...'ref={register}/>
+          <p>{errors.email?.message}</p>
           <input type="text" name='age' placeholder='Age...'ref={register}/>
+          <p>{errors.age?.message}</p>
           <input type="text" name='password' placeholder='Password...'ref={register}/>
+          <p>{errors.password?.message}</p>
           <input type="text" name='confirmPassword' placeholder='Confirm Password...'ref={register}/>
+          <p>{errors.confirmPassword?.message}</p>
           <input type="submit" id='submit' />
         </form>
       </div>
