@@ -21,7 +21,7 @@ function Form() {
   });
 
   const submitForm = (data)=>{
-
+console.log(data)
   }
 
   return (
@@ -37,10 +37,10 @@ function Form() {
           <p>{errors.email?.message}</p>
           <input type="text" name='age' placeholder='Age...'ref={register}/>
           <p>{errors.age?.message}</p>
-          <input type="text" name='password' placeholder='Password...'ref={register}/>
+          <input type="password" name='password' placeholder='Password...'ref={register}/>
           <p>{errors.password?.message}</p>
-          <input type="text" name='confirmPassword' placeholder='Confirm Password...'ref={register}/>
-          <p>{errors.confirmPassword?.message}</p>
+          <input type="password" name='confirmPassword' placeholder='Confirm Password...'ref={register}/>
+          <p>{errors.confirmPassword && "Passwords should match"}</p>
           <input type="submit" id='submit' />
         </form>
       </div>
